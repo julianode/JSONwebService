@@ -4,6 +4,17 @@ plugins {
 	id 'java'
 	id 'application'
 }
+/*
+* The application plugin is not necessary for running or making a .jar file.
+* However, I prefer to use it to make distribution files with .bat scripts.
+* This way, the application can run on any windows without JDK or developer tools.
+* For distribution, make sure to use the "boot" labled file at the ./build/distribution folder.
+*
+* The other files created have scripts that will not work.
+* That is because the application plugin puts inside itself the result of the spring boot plugin.
+* Hence, the application is inside another application (itself) and the script fails.
+* This failure is due to the project folder structure becoming messy.
+*/
 
 group = 'com.suman'
 version = '0.0.1-SNAPSHOT'
@@ -20,8 +31,4 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-}
-
-application {
-	mainClass = 'JSONwebServiceApplication'
 }
